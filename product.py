@@ -11,4 +11,5 @@ while True:
 	products.append([name, price])#等於上面幾行
 print(products)
 
-print(products[0][0])
+for p in products: #把一個一個清單的東西拿出來
+	print(p[0], '的價格是', p[1])
