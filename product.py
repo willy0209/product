@@ -1,12 +1,20 @@
+#先檢查檢查檔案在不在
+import os #作業系統(operation system)
+
+products = [] #不管有沒有找到檔案，都要產生空清單
+if os.path.isfile('products.csv'): #檢查檢查檔案在不在
+	print('yeah!找到檔案')
 #讀取檔案
-products = []
-with open('products.csv', 'r', encoding = 'utf-8') as f:
-	for line in f:
-		if '商品名稱,商品價格' in line:
-			continue # 遇到商品跟價格就跳過那一行
-		name, price = line.strip().split(',') #strip是去除\n的功能
-		products.append([name, price])
-print(products)
+	with open('products.csv', 'r', encoding = 'utf-8') as f:
+		for line in f:
+			if '商品名稱,商品價格' in line:
+				continue # 遇到商品跟價格就跳過那一行
+			name, price = line.strip().split(',') #strip是去除\n的功能
+			products.append([name, price])
+	print(products)
+else:
+	print('no!找不到檔案')
+
 
 #讓使用者輸入
 while True:
